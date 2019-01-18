@@ -81,7 +81,7 @@ plot(robot)
 # library('ggplot2')
 # autoplot(robot)
 # nie ma jednoznacznej odpowiedzi, czy proces jest stacjonarny, czy nie
-# proces nie jest stacjnarny
+# proces nie jest stacjonarny
 
 library('tseries')
 ar1 <- arima(robot, order = c(1, 0, 0))
@@ -92,7 +92,7 @@ arima011 <- arima(robot, order = c(0, 1, 1))
 summary(arima011)
 
 AIC(ar1,arima011)
-# model ARIMA(0,1,1) jest lepszy, wartość kryterim jest mniejsza
+# model ARIMA(0,1,1) jest lepszy, wartość kryterium jest mniejsza
 
 predict(arima011, n.ahead = 5)
 
