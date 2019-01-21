@@ -11,8 +11,10 @@ ggplot(cars, aes(x = speed, y = dist)) + geom_point() + geom_smooth(method = 'lm
 library('MASS')
 hills = data.frame(hills)
 View(hills)
-ggplot(hills, aes(x = dist, y = time)) + geom_point() + geom_smooth(method = 'lm', se = FALSE, color = 'blue')
-ggplot(hills, aes(x = climb, y = time)) + geom_point() + geom_smooth(method = 'lm', se = FALSE, color = 'blue')
+ggplot(hills, aes(x = time, y = dist)) + geom_point() + geom_smooth(method = 'lm', se = FALSE, color = 'blue') -> p1
+ggplot(hills, aes(x = time, y = climb)) + geom_point() + geom_smooth(method = 'lm', se = FALSE, color = 'blue') -> p2
+library('gridExtra')
+grid.arrange(p1, p2, ncol = 2)
 library('broom')
 lmfit <- lm(dist ~ time, hills)
 tidy(lmfit)
